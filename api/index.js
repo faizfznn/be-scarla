@@ -10,10 +10,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Serve static files from public folder
 app.use("/public", express.static(path.join(__dirname, "../public")));
 
-// Database untuk semua materi dan quiz
+// database untuk semua materi (video)
 const materialsDatabase = {
   html: {
     id: "html",
@@ -250,7 +249,7 @@ const materialsDatabase = {
   },
 };
 
-// Database quiz untuk setiap materi
+// database quiz untuk setiap materi
 const quizzesDatabase = {
   html_quiz: {
     id: "html_quiz",
