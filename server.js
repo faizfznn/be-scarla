@@ -20,8 +20,8 @@ const materialsDatabase = {
     videos: [
       {
         id: 1,
-        title: "Pengenalan HTML",
-        duration: "15:30",
+        title: "HTML dasar - Pendahuluan",
+        duration: "05:20",
         videoRes: "https://example.com/videos/html-intro.mp4",
       },
       {
