@@ -17,10 +17,8 @@ app.use("/public", express.static(path.join(__dirname, "../public")));
 const materialsDatabase = {
   html: {
     id: "html",
-    title: "HTML dasar",
+    title: "HTML",
     icon: "html5",
-    description:
-      "Pelajari Hypertext Markup Language untuk membuat struktur web",
     totalVideos: 3,
     videos: [
       {
@@ -53,9 +51,8 @@ const materialsDatabase = {
 
   css: {
     id: "css",
-    title: "CSS dasar",
+    title: "CSS",
     icon: "css3",
-    description: "Pelajari Cascading Style Sheets untuk styling halaman web",
     totalVideos: 3,
     videos: [
       {
@@ -88,9 +85,8 @@ const materialsDatabase = {
 
   javascript: {
     id: "javascript",
-    title: "JavaScript dasar",
+    title: "JavaScript",
     icon: "javascript",
-    description: "Pelajari bahasa pemrograman untuk membuat web interaktif",
     totalVideos: 4,
     videos: [
       {
@@ -129,9 +125,8 @@ const materialsDatabase = {
 
   java: {
     id: "java",
-    title: "Java dasar",
+    title: "Java",
     icon: "java",
-    description: "Pelajari bahasa pemrograman Java untuk backend development",
     totalVideos: 4,
     videos: [
       {
@@ -170,10 +165,8 @@ const materialsDatabase = {
 
   python: {
     id: "python",
-    title: "Python dasar",
+    title: "Python",
     icon: "python",
-    description:
-      "Pelajari bahasa pemrograman Python untuk data science dan automation",
     totalVideos: 4,
     videos: [
       {
@@ -212,10 +205,8 @@ const materialsDatabase = {
 
   csharp: {
     id: "csharp",
-    title: "C# dasar",
+    title: "C#",
     icon: "csharp",
-    description:
-      "Pelajari C# untuk .NET development dan game development dengan Unity",
     totalVideos: 4,
     videos: [
       {
@@ -756,5 +747,21 @@ app.get("/api/health", (req, res) => {
   });
 });
 
-// Export app untuk Vercel serverless functions
-module.exports = app;
+// ==================== START SERVER ====================
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`\n🚀 SCARLA API Server Running!`);
+  console.log(`📍 URL: http://localhost:${PORT}`);
+  console.log(`\n📝 API Endpoints:`);
+  console.log(`   GET  /api/materials`);
+  console.log(`   GET  /api/materials/:materialId`);
+  console.log(`   GET  /api/quizzes`);
+  console.log(`   GET  /api/quizzes/:quizId`);
+  console.log(`   POST /api/quizzes/:quizId/submit`);
+  console.log(`   GET  /api/health`);
+  console.log(`\n📚 Available Materials:`);
+  console.log(`   - html, css, javascript, java, python, csharp`);
+  console.log(`\n📁 Video Folder: /public/videos/`);
+  console.log(`\n✅ Server siap menerima request!\n`);
+});
