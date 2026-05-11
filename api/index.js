@@ -1,6 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const path = require("path");
+const fs = require("fs");
 
 dotenv.config();
 const app = express();
@@ -8,7 +10,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Database simulasi untuk semua materi dan quiz
+// Serve static files from public folder
+app.use("/public", express.static(path.join(__dirname, "../public")));
+
+// Database untuk semua materi dan quiz
 const materialsDatabase = {
   html: {
     id: "html",
@@ -20,21 +25,21 @@ const materialsDatabase = {
     videos: [
       {
         id: 1,
-        title: "Pengenalan HTML",
-        duration: "15:30",
-        videoRes: "https://example.com/videos/html-intro.mp4",
+        title: "HTML dasar - Pendahuluan",
+        duration: "05:20",
+        videoRes: "http://localhost:3000/public/videos/html_intro.mp4",
       },
       {
         id: 2,
         title: "Tag dan Elemen HTML",
         duration: "20:45",
-        videoRes: "https://example.com/videos/html-tags.mp4",
+        videoRes: "http://localhost:3000/public/videos/html_tag.mp4",
       },
       {
         id: 3,
         title: "Forms dan Input",
         duration: "18:20",
-        videoRes: "https://example.com/videos/html-forms.mp4",
+        videoRes: "http://localhost:3000/public/videos/html_form.mp4",
       },
     ],
     quizzes: [
@@ -57,19 +62,19 @@ const materialsDatabase = {
         id: 1,
         title: "Pengenalan CSS",
         duration: "14:15",
-        videoRes: "https://example.com/videos/css-intro.mp4",
+        videoRes: "http://localhost:3000/public/videos/css_intro.mp4",
       },
       {
         id: 2,
         title: "Selectors dan Properties",
         duration: "22:10",
-        videoRes: "https://example.com/videos/css-selectors.mp4",
+        videoRes: "http://localhost:3000/public/videos/css_selectors.mp4",
       },
       {
         id: 3,
         title: "Flexbox dan Grid",
         duration: "25:50",
-        videoRes: "https://example.com/videos/css-layout.mp4",
+        videoRes: "http://localhost:3000/public/videos/css_layout.mp4",
       },
     ],
     quizzes: [
@@ -92,25 +97,25 @@ const materialsDatabase = {
         id: 1,
         title: "Pengenalan JavaScript",
         duration: "16:40",
-        videoRes: "https://example.com/videos/js-intro.mp4",
+        videoRes: "http://localhost:3000/public/videos/js_intro.mp4",
       },
       {
         id: 2,
         title: "Variabel dan Tipe Data",
         duration: "19:25",
-        videoRes: "https://example.com/videos/js-variables.mp4",
+        videoRes: "http://localhost:3000/public/videos/js_variables.mp4",
       },
       {
         id: 3,
         title: "Fungsi dan Scope",
         duration: "21:35",
-        videoRes: "https://example.com/videos/js-functions.mp4",
+        videoRes: "http://localhost:3000/public/videos/js_functions.mp4",
       },
       {
         id: 4,
         title: "DOM Manipulation",
         duration: "24:15",
-        videoRes: "https://example.com/videos/js-dom.mp4",
+        videoRes: "http://localhost:3000/public/videos/js_dom.mp4",
       },
     ],
     quizzes: [
@@ -133,25 +138,25 @@ const materialsDatabase = {
         id: 1,
         title: "Setup dan Instalasi Java",
         duration: "12:50",
-        videoRes: "https://example.com/videos/java-setup.mp4",
+        videoRes: "http://localhost:3000/public/videos/java_setup.mp4",
       },
       {
         id: 2,
         title: "Sintaks Dasar Java",
         duration: "20:30",
-        videoRes: "https://example.com/videos/java-syntax.mp4",
+        videoRes: "http://localhost:3000/public/videos/java_syntax.mp4",
       },
       {
         id: 3,
         title: "OOP - Class dan Object",
         duration: "26:45",
-        videoRes: "https://example.com/videos/java-oop.mp4",
+        videoRes: "http://localhost:3000/public/videos/java_oop.mp4",
       },
       {
         id: 4,
         title: "Collections dan Generics",
         duration: "23:20",
-        videoRes: "https://example.com/videos/java-collections.mp4",
+        videoRes: "http://localhost:3000/public/videos/java_collections.mp4",
       },
     ],
     quizzes: [
@@ -175,25 +180,25 @@ const materialsDatabase = {
         id: 1,
         title: "Setup Python",
         duration: "11:20",
-        videoRes: "https://example.com/videos/python-setup.mp4",
+        videoRes: "http://localhost:3000/public/videos/python_setup.mp4",
       },
       {
         id: 2,
         title: "Variabel dan Operasi",
         duration: "18:45",
-        videoRes: "https://example.com/videos/python-variables.mp4",
+        videoRes: "http://localhost:3000/public/videos/python_variables.mp4",
       },
       {
         id: 3,
         title: "Control Flow",
         duration: "22:15",
-        videoRes: "https://example.com/videos/python-control.mp4",
+        videoRes: "http://localhost:3000/public/videos/python_control.mp4",
       },
       {
         id: 4,
         title: "Fungsi dan Modul",
         duration: "20:50",
-        videoRes: "https://example.com/videos/python-functions.mp4",
+        videoRes: "http://localhost:3000/public/videos/python_functions.mp4",
       },
     ],
     quizzes: [
@@ -217,25 +222,25 @@ const materialsDatabase = {
         id: 1,
         title: "Pengenalan C#",
         duration: "13:40",
-        videoRes: "https://example.com/videos/csharp-intro.mp4",
+        videoRes: "http://localhost:3000/public/videos/csharp_intro.mp4",
       },
       {
         id: 2,
         title: "Tipe Data dan Variabel",
         duration: "19:30",
-        videoRes: "https://example.com/videos/csharp-types.mp4",
+        videoRes: "http://localhost:3000/public/videos/csharp_types.mp4",
       },
       {
         id: 3,
         title: "OOP di C#",
         duration: "28:15",
-        videoRes: "https://example.com/videos/csharp-oop.mp4",
+        videoRes: "http://localhost:3000/public/videos/csharp_oop.mp4",
       },
       {
         id: 4,
         title: "Async dan Threading",
         duration: "24:40",
-        videoRes: "https://example.com/videos/csharp-async.mp4",
+        videoRes: "http://localhost:3000/public/videos/csharp_async.mp4",
       },
     ],
     quizzes: [
@@ -587,6 +592,8 @@ const quizzesDatabase = {
   },
 };
 
+// ==================== API ROUTES ====================
+
 // GET all materials
 app.get("/api/materials", (req, res) => {
   try {
@@ -749,4 +756,5 @@ app.get("/api/health", (req, res) => {
   });
 });
 
+// Export app untuk Vercel serverless functions
 module.exports = app;
