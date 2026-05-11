@@ -77,7 +77,7 @@ be-scarla/
 1. **Clone Repository**
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/faizfznn/be-scarla.git
    cd be-scarla
    ```
 
