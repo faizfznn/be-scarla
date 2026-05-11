@@ -19,6 +19,7 @@ const materialsDatabase = {
     id: "html",
     title: "HTML",
     icon: "html5",
+    description: "HTML Dasar",
     totalVideos: 3,
     videos: [
       {
@@ -53,6 +54,7 @@ const materialsDatabase = {
     id: "css",
     title: "CSS",
     icon: "css3",
+    description: "CSS Dasar",
     totalVideos: 3,
     videos: [
       {
@@ -87,6 +89,7 @@ const materialsDatabase = {
     id: "javascript",
     title: "JavaScript",
     icon: "javascript",
+    description: "Javascript Dasar",
     totalVideos: 4,
     videos: [
       {
@@ -127,6 +130,7 @@ const materialsDatabase = {
     id: "java",
     title: "Java",
     icon: "java",
+    description: "Java Dasar",
     totalVideos: 4,
     videos: [
       {
@@ -167,6 +171,7 @@ const materialsDatabase = {
     id: "python",
     title: "Python",
     icon: "python",
+    description: "Python Dasar",
     totalVideos: 4,
     videos: [
       {
@@ -207,6 +212,7 @@ const materialsDatabase = {
     id: "csharp",
     title: "C#",
     icon: "csharp",
+    description: "C# Dasar",
     totalVideos: 4,
     videos: [
       {
