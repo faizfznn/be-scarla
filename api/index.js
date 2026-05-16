@@ -25,19 +25,19 @@ const materialsDatabase = {
         id: 1,
         title: "HTML dasar - Pendahuluan",
         duration: "05:20",
-        videoRes: "http://localhost:3000/public/videos/html_intro.mp4",
+        videoRes: "http://be-scarla.vercel.app/public/videos/html_intro.mp4",
       },
       {
         id: 2,
         title: "Tag dan Elemen HTML",
         duration: "20:45",
-        videoRes: "http://localhost:3000/public/videos/html_tag.mp4",
+        videoRes: "http://be-scarla.vercel.app/public/videos/html_tag.mp4",
       },
       {
         id: 3,
         title: "Forms dan Input",
         duration: "18:20",
-        videoRes: "http://localhost:3000/public/videos/html_form.mp4",
+        videoRes: "http://be-scarla.vercel.app/public/videos/html_form.mp4",
       },
     ],
     quizzes: [
